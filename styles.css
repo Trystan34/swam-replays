@@ -1,0 +1,93 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Raleway', sans-serif;
+  height: 100vh;
+  background: transparent;
+  margin: 0;
+  overflow: hidden;
+}
+
+.image-holder {
+  width: 100%;
+  height: 70px;
+}
+
+.image-holder .background-image {
+  width: 500px;
+  height: 94px;
+  overflow: hidden;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  z-index: 1;
+}
+
+.window {
+  aspect-ratio: 16/9;
+  width: 100%;
+  --border-size: 1rem;
+  animation: 10s linear infinite rotate;
+  position: relative;
+}
+
+.window:after {
+  content: '';
+  background: url(team_swarm_purple.png) no-repeat 94px;
+  background-position: center;
+  height: 94px;
+  margin-top: -88px;
+  display: block;
+}
+
+.text-holder {
+  margin-top: 1px;
+  padding: 0;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.text-holder p {
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  background-color: hsl(276, 96%, 9%);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.rainbow {
+  border: var(--border-size) solid transparent;
+  border-image: conic-gradient(
+      from var(--angle),
+      hsl(276, 96%, 9%) 0deg 90deg,
+      hsl(276, 96%, 25%) 90deg 180deg,
+      hsl(276, 96%, 9%) 180deg 270deg,
+      hsl(276, 96%, 25%) 270deg 360deg
+    )
+    1 stretch;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+@supports (background: paint(houdini)) {
+  @property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  @keyframes rotate {
+    to {
+      --angle: 360deg;
+    }
+  }
+}
