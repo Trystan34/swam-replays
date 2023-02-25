@@ -7,10 +7,15 @@
 html,
 body {
   font-family: 'Raleway', sans-serif;
-  height: 100vh;
   background: transparent;
   margin: 0;
   overflow: hidden;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
 }
 
 .image-holder {
@@ -30,7 +35,6 @@ body {
 
 .window {
   aspect-ratio: 16/9;
-  width: 100%;
   --border-size: 1rem;
   animation: 10s linear infinite rotate;
   position: relative;
@@ -47,11 +51,8 @@ body {
 
 .text-holder {
   margin-top: 1px;
-  padding: 0;
-  display: inline-block;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
 }
 
 .text-holder p {
